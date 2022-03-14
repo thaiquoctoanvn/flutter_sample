@@ -9,7 +9,7 @@ class DefaultLocalizations {
   static DefaultLocalizations? of(BuildContext buildContext) {
     return Localizations.of<DefaultLocalizations>(buildContext, DefaultLocalizations);
   }
-  String getStringResource(String key) => languages[key];
+  String getStringResource(String key) => languages[key] ?? "Blank string";
 }
 
 late GlobalMaterialLocalizations localizations;

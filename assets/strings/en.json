@@ -1,3 +1,12 @@
 {
-  "hello": "How's everything going?"
+  "hello": "How's everything going?",
+  "user_displayed_name": "Bruce Banner",
+  "user_name": "@bruce.banner",
+  "following_title": "Following",
+  "follower_title": "Followers",
+  "post_title": "Posts",
+  "follow_title": "Follow",
+  "photo_title": "Photos",
+  "video_title": "Videos",
+  "tagged_title": "Tagged"
 }

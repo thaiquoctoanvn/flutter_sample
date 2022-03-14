@@ -3,8 +3,15 @@
 // 3 define a build method that return the widget that this class will show
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_sample/src/default_localizations.dart';
+import 'package:flutter_sample/src/profile_component.dart';
 
+/* The highest parent UI, every screen should be put in a separated file
+*  We might need a context for initializing variables in each screen, so this context will be helpful */
 class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return AppState();
@@ -12,19 +19,13 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
-  int counter = 0;
-
   @override
   Widget build(context) {
     return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(title: const Text('Hi')),
-            body: Text('Counter is $counter'),
-            floatingActionButton:
-            FloatingActionButton(child: const Icon(Icons.add), onPressed: () {
-              setState(() {
-                counter++;
-              });
-            })));
+        // Forced language
+        locale: const Locale('en'),
+        localizationsDelegates: [DefaultLocalizationsDelegate(), GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate],
+        supportedLocales: const [Locale('en', ''), Locale('vi', '')],
+        home: const ProfileComponent());
   }
 }

@@ -44,9 +44,9 @@ class ProfileState extends State<ProfileComponent> {
           ],
           flexibleSpace: //MyFlexibleSpaceBarComponent(appBarHeight: MediaQuery.of(context).size.height * 0.4)
               FlexibleSpaceBar(
-                  title: new Text('A Synthwave Mix'),
+                  //title: new Text('A Synthwave Mix'),
                   centerTitle: true,
-                  titlePadding: const EdgeInsets.only(left: 20.0, bottom: 20.0),
+                  //titlePadding: const EdgeInsets.only(left: 20.0, bottom: 20.0),
                   background: MyFlexibleSpaceBarComponent(
                       appBarHeight: MediaQuery.of(context).size.height * 0.4)
                   //   ClipRRect(
@@ -113,100 +113,164 @@ class MyFlexibleSpaceBarState extends State<MyFlexibleSpaceBarComponent> {
                   MediaQuery.of(context).padding.top + kToolbarHeight
               ? 1.0
               : 0.0,
-          child: Container(
-            height: appBarHeight,
-            decoration: const BoxDecoration(color: Colors.brown),
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                // Positioned(
-                //     left: 10,
-                //     top: 10,
-                //     width: MediaQuery.of(context).size.width,
-                //     child: AspectRatio(
-                //       aspectRatio: 3 / 2,
-                //       child: Container(
-                //         decoration: BoxDecoration(color: Colors.blue),
-                //       ),
-                //     )),
-                // Positioned(
-                //     left: 20,
-                //     top: 30,
-                //     width: MediaQuery.of(context).size.width,
-                //     child: AspectRatio(
-                //       aspectRatio: 3 / 2,
-                //       child: Container(
-                //         decoration: BoxDecoration(color: Colors.amber),
-                //       ),
-                //     )),
-                Image.network(
-                  'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4bb82b72535211.5bead62fe26d5.jpg',
-                  height: appBarHeight * 0.5,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.topCenter,
+          child: Stack(
+            children: [
+              Column(children: [
+                Stack(
+                  children: [
+                    Image.network(
+                      'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4bb82b72535211.5bead62fe26d5.jpg',
+                      height: appBarHeight * 0.7,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                    ),
+                    Container(
+                      height: appBarHeight * 0.7,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [
+                                Colors.black.withOpacity(0.8),
+                                Colors.white.withOpacity(0.6)
+                              ],
+                              begin: const FractionalOffset(0.0, 1.0),
+                              end: const FractionalOffset(0.0, 0.0),
+                              stops: const [0.0, 1.0])),
+                      alignment: Alignment.topCenter,
+                    ),
+                  ],
                 ),
                 Container(
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [
-                            Colors.black.withOpacity(0.8),
-                            Colors.white.withOpacity(0.6)
-                          ],
-                          begin: const FractionalOffset(0.0, 1.0),
-                          end: const FractionalOffset(0.0, 0.0),
-                          stops: const [0.0, 1.0])
-                  ),
-                  alignment: Alignment.topCenter,
-                ),
-                Container(
+                  height: appBarHeight * 0.3,
                   decoration: const BoxDecoration(color: Colors.black),
                   alignment: Alignment.bottomCenter,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: FractionallySizedBox(
-                        widthFactor: 0.2,
-                        alignment: Alignment.topCenter,
-                        child: AspectRatio(
-                          aspectRatio: 1 / 1,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                border:
-                                    Border.all(color: Colors.amber, width: 4)),
-                            padding: const EdgeInsets.all(1),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.network(
-                                "https://cellularnews.com/wp-content/uploads/2020/05/26-billie-eilish-wallpaper-portrait-in-dim-light-325x485.jpg",
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ),
+                )
+              ]),
+              Container(
+                //decoration: BoxDecoration(color: Colors.blue),
+                alignment: Alignment.lerp(Alignment.topCenter, Alignment.bottomCenter, (appBarHeight * 0.8 - MediaQuery.of(context).size.width * 0.2 / 2) / appBarHeight),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: FractionallySizedBox(
+                    widthFactor: 0.2,
+                    alignment: Alignment.topCenter,
+                    child: AspectRatio(
+                      aspectRatio: 1 / 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            border:
+                            Border.all(color: Colors.amber, width: 4)),
+                        padding: const EdgeInsets.all(1),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Image.network(
+                            "https://cellularnews.com/wp-content/uploads/2020/05/26-billie-eilish-wallpaper-portrait-in-dim-light-325x485.jpg",
+                            fit: BoxFit.fitWidth,
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: Text(
-                        DefaultLocalizations.of(context)
-                                ?.getStringResource("user_name") ??
-                            "",
-                        style: const TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
+                  ),
+                ),
+              )
+            ],
           ));
+      // Container(
+      //   height: appBarHeight,
+      //   decoration: const BoxDecoration(color: Colors.brown),
+      //   child: Stack(
+      //     clipBehavior: Clip.none,
+      //     children: [
+      //       // Positioned(
+      //       //     left: 10,
+      //       //     top: 10,
+      //       //     width: MediaQuery.of(context).size.width,
+      //       //     child: AspectRatio(
+      //       //       aspectRatio: 3 / 2,
+      //       //       child: Container(
+      //       //         decoration: BoxDecoration(color: Colors.blue),
+      //       //       ),
+      //       //     )),
+      //       // Positioned(
+      //       //     left: 20,
+      //       //     top: 30,
+      //       //     width: MediaQuery.of(context).size.width,
+      //       //     child: AspectRatio(
+      //       //       aspectRatio: 3 / 2,
+      //       //       child: Container(
+      //       //         decoration: BoxDecoration(color: Colors.amber),
+      //       //       ),
+      //       //     )),
+      //       Image.network(
+      //         'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4bb82b72535211.5bead62fe26d5.jpg',
+      //         height: appBarHeight * 0.5,
+      //         width: double.infinity,
+      //         fit: BoxFit.cover,
+      //         alignment: Alignment.topCenter,
+      //       ),
+      //       Container(
+      //         height: appBarHeight * 0.5,
+      //         decoration: BoxDecoration(
+      //             gradient: LinearGradient(
+      //                 colors: [
+      //                   Colors.black.withOpacity(0.8),
+      //                   Colors.white.withOpacity(0.6)
+      //                 ],
+      //                 begin: const FractionalOffset(0.0, 1.0),
+      //                 end: const FractionalOffset(0.0, 0.0),
+      //                 stops: const [0.0, 1.0])),
+      //         alignment: Alignment.topCenter,
+      //       ),
+      //       // Container(
+      //       //   height: appBarHeight * 0.5,
+      //       //   decoration: const BoxDecoration(color: Colors.black),
+      //       //   alignment: Alignment.bottomCenter,
+      //       // ),
+      //       Column(
+      //         mainAxisAlignment: MainAxisAlignment.end,
+      //         crossAxisAlignment: CrossAxisAlignment.stretch,
+      //         children: [
+      //           Padding(
+      //             padding: const EdgeInsets.only(bottom: 8),
+      //             child: FractionallySizedBox(
+      //               widthFactor: 0.2,
+      //               alignment: Alignment.topCenter,
+      //               child: AspectRatio(
+      //                 aspectRatio: 1 / 1,
+      //                 child: Container(
+      //                   decoration: BoxDecoration(
+      //                       borderRadius: BorderRadius.circular(16),
+      //                       border:
+      //                           Border.all(color: Colors.amber, width: 4)),
+      //                   padding: const EdgeInsets.all(1),
+      //                   child: ClipRRect(
+      //                     borderRadius: BorderRadius.circular(12),
+      //                     child: Image.network(
+      //                       "https://cellularnews.com/wp-content/uploads/2020/05/26-billie-eilish-wallpaper-portrait-in-dim-light-325x485.jpg",
+      //                       fit: BoxFit.fitWidth,
+      //                     ),
+      //                   ),
+      //                 ),
+      //               ),
+      //             ),
+      //           ),
+      //           Padding(
+      //             padding: const EdgeInsets.only(bottom: 8),
+      //             child: Text(
+      //               DefaultLocalizations.of(context)
+      //                       ?.getStringResource("user_name") ??
+      //                   "",
+      //               style: const TextStyle(
+      //                   color: Colors.white, fontWeight: FontWeight.bold),
+      //               textAlign: TextAlign.center,
+      //             ),
+      //           ),
+      //         ],
+      //       )
+      //     ],
+      //   ),
+      // ));
     });
   }
 }

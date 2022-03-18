@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_sample/src/default_localizations.dart';
-import 'package:flutter_sample/src/profile_component.dart';
 import 'package:flutter_sample/src/snapchat/chat_component.dart';
-import 'package:flutter_sample/src/snapchat/common_widgets.dart';
 import 'package:flutter_sample/src/snapchat/story_component.dart';
 
 /* The highest parent UI, every screen should be put in a separated file

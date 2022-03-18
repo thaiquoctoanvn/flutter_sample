@@ -1,6 +1,4 @@
-import 'dart:html';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/src/snapchat/inbox_model.dart';
 import 'package:flutter_sample/src/snapchat/my_expandable_section.dart';
@@ -41,18 +39,20 @@ class Util {
     InBoxModel(id: 32, senderName: "Grayson", isRead: true, currentlyMessage: "Hey dude"),
   ];
 
-  // static provideExpandableItem([int numberOfSection = 7]) {
-  //   var inboxes = provideInboxItems();
-  //   var sections = List<MyExpandableSection>.empty(growable: true);
-  //   for (int index = 0; index < numberOfSection; index++) {
-  //     var section = MyExpandableSection()
-  //     ..header = "Group $index"
-  //     ..isExpandable = true
-  //     ..items = inboxes.take(5).toList(growable: false);
-  //     sections.add(section);
-  //     inboxes.reduce((value, element) => null)
-  //   }
-  // }
+  static List<MyExpandableSection> provideExpandableItem([int numberOfSection = 7]) {
+    var inboxes = provideInboxItems();
+    var sections = List<MyExpandableSection>.empty(growable: true);
+    for (int index = 0; index < numberOfSection; index++) {
+      var ranges = inboxes.take(5).toList(growable: false);
+      var section = MyExpandableSection()
+      ..header = "Group $index"
+      ..isExpandable = true
+      ..items = ranges;
+      sections.add(section);
+      inboxes.removeRange(0, ranges.length);
+    }
+    return sections;
+  }
 
   static showSnackBar(BuildContext context, String message) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message), duration: const Duration(milliseconds: 500),),);
 }

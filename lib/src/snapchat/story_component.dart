@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/src/snapchat/common_widgets.dart';
 
-import '../app.dart';
-
 class StoryComponent extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => StoryState();

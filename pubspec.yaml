@@ -34,8 +34,22 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  #
+  sticky_and_expandable_list: ^1.0.3
+
+  #Dio is our Http client and handling the connection for us.
+  #Retrofit is a Dio client that makes consuming Rest APIs easier for us.
+  #Build runner is used for code generation in Dart, apart from the pub.
+  #JSON Serialization creates a model class from JSON data.
+  retrofit: '>=3.0.0 <4.0.0'
+  dio: ^4.0.4
+  built_value: ^8.0.0
+  json_annotation: ^4.4.0
+  json_serializable: ^6.0.0
 
 dev_dependencies:
+  retrofit_generator: '>=4.0.0 <5.0.0'
+  build_runner:
   flutter_test:
     sdk: flutter
 
@@ -59,12 +73,13 @@ flutter:
   assets:
     - assets/strings/en.json
     - assets/strings/vi.json
+    - assets/images/place_holder.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
-  # An image asset can refer to one or more resolution-specific "variants", see
+  # An images asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
   # For details regarding adding assets from package dependencies, see

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/src/mvvm/mvvm_component.dart';
 import 'package:flutter_sample/src/snapchat/common_widgets.dart';
 import 'package:flutter_sample/src/snapchat/detail_inbox_component.dart';
 import 'package:flutter_sample/src/snapchat/inbox_component.dart';
@@ -91,7 +92,7 @@ class ChatState extends State<ChatComponent> {
         Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => DetailInboxComponent()
+            builder: (context) => MvvmComponent()
         )
     )
   },

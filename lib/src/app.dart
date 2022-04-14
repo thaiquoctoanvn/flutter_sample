@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_sample/src/default_localizations.dart';
+import 'package:flutter_sample/src/mvvm/global_const.dart';
 import 'package:flutter_sample/src/snapchat/chat_component.dart';
 import 'package:flutter_sample/src/snapchat/story_component.dart';
 

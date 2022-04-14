@@ -37,7 +37,19 @@ dependencies:
   #
   sticky_and_expandable_list: ^1.0.3
 
+  #Dio is our Http client and handling the connection for us.
+  #Retrofit is a Dio client that makes consuming Rest APIs easier for us.
+  #Build runner is used for code generation in Dart, apart from the pub.
+  #JSON Serialization creates a model class from JSON data.
+  retrofit: '>=3.0.0 <4.0.0'
+  dio: ^4.0.4
+  built_value: ^8.0.0
+  json_annotation: ^4.4.0
+  json_serializable: ^6.0.0
+
 dev_dependencies:
+  retrofit_generator: '>=4.0.0 <5.0.0'
+  build_runner:
   flutter_test:
     sdk: flutter
 
